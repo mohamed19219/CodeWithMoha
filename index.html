@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeWithMoha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- خلفية متحركة -->
+    <div class="animated-bg">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+    </div>
+
+     
+<div id="progressBar"></div>
+
+
+    <!-- شريط التنقل -->
+    <header class="navbar">
+    <div class="logo">
+    <img src="logo.png" alt="Logo" class="nav-logo">
+    <span>CodeWithMoha</span>
+</div>
+
+    <nav class="nav-links">
+        <a href="index.html" class="nav-item active"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="lessons.html" class="nav-item"><i class="fa-solid fa-layer-group"></i> Lessons</a>
+        <a href="#contact" class="nav-item"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <button id="darkModeToggle" class="dark-mode-btn">
+    <i class="fa-solid fa-moon"></i>
+</button>
+</header>
+
+
+    <!-- المحتوى -->
+    <section class="hero fade-in">
+        <img src="profile.jpg" alt="Profile" class="profile-pic" />
+        <h1 class="gradient-text" id="typewriter"></h1>
+        <p class="hero-text">Web Developer | Content Creator | Sharing Knowledge</p>
+        <a href="lessons.html" class="btn fancy-btn">Start Learning</a>
+    </section>
+
+    <!-- تواصل -->
+    <section class="contact fade-in" id="contact">
+    <div class="contact-card">
+        <h2>Contact Me</h2>
+        <form>
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-message"></i>
+                <textarea placeholder="Your Message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn fancy-btn">Send Message</button>
+        </form>
+        <div class="contact-social">
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- زر العودة للأعلى -->
+    <button id="backToTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- ذيل الصفحة -->
+    <footer>
+        <p>© <span id="year"></span> <strong>CodeWithMoha</strong> | Built with ❤️ and Coffee ☕</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // انتقال سلس بين الصفحات
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("page-transition");
+            setTimeout(() => document.body.classList.add("page-loaded"), 50);
+
+            document.querySelectorAll("a").forEach(link => {
+                if (link.href && !link.href.includes("#")) {
+                    link.addEventListener("click", e => {
+                        e.preventDefault();
+                        document.body.classList.remove("page-loaded");
+                        setTimeout(() => window.location.href = link.href, 400);
+                    });
+                }
+            });
+        });
+
+const darkModeToggle = document.getElementById("darkModeToggle");
+const body = document.body;
+
+// تحقق من الوضع المحفوظ
+if(localStorage.getItem("darkMode") === "enabled") {
+    body.classList.add("dark-mode");
+    darkModeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+}
+
+darkModeToggle.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+    if(body.classList.contains("dark-mode")){
+        localStorage.setItem("darkMode", "enabled");
+        darkModeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    } else {
+        localStorage.setItem("darkMode", "disabled");
+        darkModeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    }
+});
+// شريط تقدم التمرير
+window.addEventListener("scroll", () => {
+    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrollPercent = (scrollTop / scrollHeight) * 100;
+    document.getElementById("progressBar").style.width = scrollPercent + "%";
+});
+
+
+    </script>
+</body>
+</html>

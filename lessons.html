@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lessons - CodeWithMoha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <link rel="stylesheet" href="style-lessons.css">
+</head>
+<body>
+    <!-- الخلفية المتحركة -->
+    <div class="animated-bg">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+    </div>
+
+    <!-- شريط التنقل -->
+    <header class="navbar">
+    <div class="logo">
+    <img src="logo.png" alt="Logo" class="nav-logo">
+    <span>CodeWithMoha</span>
+    </div>
+
+    <nav class="nav-links">
+        <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="lessons.html" class="nav-item active"><i class="fa-solid fa-layer-group"></i> Lessons</a>
+        <a href="index.html#contact" class="nav-item"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <button id="darkModeToggle" class="dark-mode-btn">
+    <i class="fa-solid fa-moon"></i>
+</button>
+</header>
+
+
+    <!-- العنوان -->
+    <section class="hero fade-in">
+        <h1 class="gradient-text">Start Learning Web Development</h1>
+        <p class="hero-text">Choose a topic to start learning step by step.</p>
+    </section>
+
+    <!-- بطاقات الدروس -->
+    <section class="lessons-section">
+        <div class="card fade-in-up" style="transition-delay: 0.1s;">
+            <i class="fa-brands fa-html5 card-icon" style="color:#e34f26;"></i>
+            <h3>HTML</h3>
+            <p>Learn the structure of the web with hands-on examples.</p>
+            <a href="html-lessons.html" class="btn fancy-btn">Start HTML</a>
+        </div>
+        <div class="card fade-in-up" style="transition-delay: 0.3s;">
+            <i class="fa-brands fa-css3-alt card-icon" style="color:#264de4;"></i>
+            <h3>CSS</h3>
+            <p>Style your websites beautifully and professionally.</p>
+            <a href="#" class="btn fancy-btn">Start CSS</a>
+        </div>
+        <div class="card fade-in-up" style="transition-delay: 0.5s;">
+            <i class="fa-brands fa-js card-icon" style="color:#f7df1e;"></i>
+            <h3>JavaScript</h3>
+            <p>Bring life to your websites with interactive scripts.</p>
+            <a href="#" class="btn fancy-btn">Start JS</a>
+        </div>
+    </section>
+
+    <!-- زر العودة للأعلى -->
+    <button id="backToTop"><i class="fa-solid fa-arrow-up"></i></button>
+    <audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3" preload="auto"></audio>
+  
+     
+
+    <!-- ذيل الصفحة -->
+    <footer>
+        <p>© <span id="year"></span> <strong>CodeWithMoha</strong> | Built with ❤️ and Coffee ☕</p>
+    </footer>
+
+    <script>
+        // زر العودة للأعلى مع صوت
+        const backToTop = document.getElementById("backToTop");
+        const clickSound = document.getElementById("clickSound");
+        window.addEventListener("scroll", () => {
+            backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+        });
+        backToTop.addEventListener("click", () => {
+            clickSound.currentTime = 0;
+            clickSound.play();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // تحديث السنة تلقائياً
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // تأثير دخول البطاقات
+        document.addEventListener("scroll", () => {
+            document.querySelectorAll('.fade-in, .fade-in-up').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        });
+
+const darkModeToggle = document.getElementById("darkModeToggle");
+const body = document.body;
+
+// تحقق من الوضع المحفوظ
+if(localStorage.getItem("darkMode") === "enabled") {
+    body.classList.add("dark-mode");
+    darkModeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+}
+
+darkModeToggle.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+    if(body.classList.contains("dark-mode")){
+        localStorage.setItem("darkMode", "enabled");
+        darkModeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    } else {
+        localStorage.setItem("darkMode", "disabled");
+        darkModeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    }
+});
+
+
+    </script>
+</body>
+</html>

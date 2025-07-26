@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Lessons - CodeWithMoha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f9f9f9;
+            color: #333;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: linear-gradient(45deg, #023e8a, #0077b6);
+            color: #fff;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-item {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 50px;
+            transition: background 0.3s ease;
+        }
+        .nav-item:hover {
+            background: rgba(0,180,216,0.3);
+        }
+        /* زر الرجوع */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 20px 50px;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #0077b6, #00b4d8);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .back-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .hero {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .gradient-text {
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #0077b6, #00b4d8);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .hero-text {
+            font-size: 18px;
+            color: #555;
+            margin-top: 10px;
+        }
+        .lessons-section {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding: 50px 20px;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        .card iframe {
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0077b6;
+            color: #fff;
+            margin-top: 50px;
+        }
+        /* زر التبديل */
+.dark-mode-btn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.dark-mode-btn:hover {
+    transform: scale(1.2);
+}
+
+/* الوضع الداكن */
+body.dark-mode {
+    background: #121212;
+    color: #e0e0e0;
+}
+body.dark-mode .navbar {
+    background: linear-gradient(45deg, #1e1e1e, #333);
+}
+body.dark-mode .card {
+    background: #1f1f1f;
+    color: #fff;
+}
+body.dark-mode .contact-card {
+    background: #1f1f1f;
+}
+body.dark-mode footer {
+    background: #1e1e1e;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- شريط التنقل -->
+    <header class="navbar">
+        <div class="logo">CodeWithMoha</div>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="lessons.html" class="nav-item"><i class="fa-solid fa-layer-group"></i> Lessons</a>
+            <a href="index.html#contact" class="nav-item"><i class="fa-solid fa-envelope"></i> Contact</a>
+        </nav>
+       <button id="darkModeToggle" class="dark-mode-btn">
+    <i class="fa-solid fa-moon"></i>
+</button>
+    </header>
+
+    <!-- زر الرجوع -->
+    <a href="lessons.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Lessons</a>
+
+    <!-- العنوان -->
+    <section class="hero">
+        <h1 class="gradient-text">HTML Lessons</h1>
+        <p class="hero-text">Start your journey in learning HTML step by step.</p>
+    </section>
+
+    <!-- قائمة الفيديوهات -->
+    <section class="lessons-section">
+        <div class="card">
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/Y27kpynDKz0?si=jjJ6nQu5vDe3oNzC" frameborder="0" allowfullscreen></iframe>
+            <h3>ماهي لغة تطوير الويب Html أول درس للمبتدئين ؟</h3>
+            <p>Understand what HTML is and why it is important.</p>
+        </div>
+        <div class="card">
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/ncDR3RnIxyA?si=V8cQ4T1487-D1Vn1" frameborder="0" allowfullscreen></iframe>
+            <h3>الدرس الثاني في رحلة تعلم لغة HTML 5 من الصفر للإحتراف ⚡️💻</h3>
+            <p>Learn the most common tags used in web development.</p>
+        </div>
+        <div class="card">
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/VRO4hEPZOII?si=xqFTfImIo5OlSZPO" frameborder="0" allowfullscreen></iframe>
+            <h3>الدرس الثالث تصميم صفحة تسجيل وانشاء حساب من الصفر لا تفوت الفرصة 👨‍💻🔥⚡️</h3>
+            <p>Create and run your first HTML page easily.</p>
+        </div>
+
+
+        <div class="card">
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/GMeNi4xm_mA?si=qfvc5Jlm9ECvIQf5" frameborder="0" allowfullscreen></iframe>
+            <h3>📌 الدرس الرابع: احتراف الجداول في HTML - إنشاء وتصميم الجداول بمرونة واحترافية! 🖥️</h3>
+            <p>Understand what HTML is and why it is important.</p>
+        </div>
+
+
+    </section>
+
+    <!-- ذيل الصفحة -->
+    <footer>
+        <p>&copy; 2025 CodeWithMoha. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById("darkModeToggle");
+const body = document.body;
+
+// تحقق من الوضع المحفوظ
+if(localStorage.getItem("darkMode") === "enabled") {
+    body.classList.add("dark-mode");
+    darkModeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+}
+
+darkModeToggle.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+    if(body.classList.contains("dark-mode")){
+        localStorage.setItem("darkMode", "enabled");
+        darkModeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    } else {
+        localStorage.setItem("darkMode", "disabled");
+        darkModeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    }
+});
+
+    </script>
+</body>
+</html>
